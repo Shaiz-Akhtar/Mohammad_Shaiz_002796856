@@ -42,6 +42,11 @@ public class MainjFrame extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton1.setText("Display Employee");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton2.setText("Add Employee");
@@ -109,6 +114,13 @@ public class MainjFrame extends javax.swing.JFrame {
         createemployee = new CreateEmployee(history);
         jSplitPane.setRightComponent(createemployee);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DisplayEmployee displayemployee;
+        displayemployee=new DisplayEmployee(history);
+        jSplitPane.setRightComponent(displayemployee);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

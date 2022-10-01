@@ -12,14 +12,14 @@ public class Profile {
     private String Name;
     private int Empid;
     private int Age;
-    private int Gender;
+    private String Gender;
     private String StartDate;
     private String Level;
     private String TeamInfo;
     private String PositionTitle;
-    private int PhoneNumer;
+    private int PhoneNumber;
     private String Email;
-    private String photo;
+    private String Photo;
 
     public String getName() {
         return Name;
@@ -45,11 +45,11 @@ public class Profile {
         this.Age = Age;
     }
 
-    public int getGender() {
+    public String getGender() {
         return Gender;
     }
 
-    public void setGender(int Gender) {
+    public void setGender(String Gender) {
         this.Gender = Gender;
     }
 
@@ -86,11 +86,11 @@ public class Profile {
     }
 
     public int getPhoneNumer() {
-        return PhoneNumer;
+        return PhoneNumber;
     }
 
     public void setPhoneNumer(int PhoneNumer) {
-        this.PhoneNumer = PhoneNumer;
+        this.PhoneNumber = PhoneNumer;
     }
 
     public String getEmail() {
@@ -102,11 +102,11 @@ public class Profile {
     }
 
     public String getPhoto() {
-        return photo;
+        return Photo;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPhoto(String Photo) {
+        this.Photo = Photo;
     }
     
     
