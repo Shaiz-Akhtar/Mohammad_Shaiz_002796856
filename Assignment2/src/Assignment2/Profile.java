@@ -4,111 +4,119 @@
  */
 package Assignment2;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Shaiz Akhtar
  */
 public class Profile {
-    private String Name;
-    private int Empid;
-    private int Age;
-    private String Gender;
-    private String StartDate;
-    private String Level;
-    private String TeamInfo;
-    private String PositionTitle;
-    private int PhoneNumber;
-    private String Email;
-    private String Photo;
+    private String name;
+    private int empId;
+    private int age;
+    private String gender;
+    private String startDate;
+    private String level;
+    private String teamInfo;
+    private String positionTitle;
+    private int phoneNumber;
+    private String email;
+    private ImageIcon photo;
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getEmpid() {
-        return Empid;
+    public int getEmpId() {
+        return empId;
     }
 
-    public void setEmpid(int Empid) {
-        this.Empid = Empid;
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
-    public void setAge(int Age) {
-        this.Age = Age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
-    public void setGender(String Gender) {
-        this.Gender = Gender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getStartDate() {
-        return StartDate;
+        return startDate;
     }
 
-    public void setStartDate(String StartDate) {
-        this.StartDate = StartDate;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
     public String getLevel() {
-        return Level;
+        return level;
     }
 
-    public void setLevel(String Level) {
-        this.Level = Level;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getTeamInfo() {
-        return TeamInfo;
+        return teamInfo;
     }
 
-    public void setTeamInfo(String TeamInfo) {
-        this.TeamInfo = TeamInfo;
+    public void setTeamInfo(String teamInfo) {
+        this.teamInfo = teamInfo;
     }
 
     public String getPositionTitle() {
-        return PositionTitle;
+        return positionTitle;
     }
 
-    public void setPositionTitle(String PositionTitle) {
-        this.PositionTitle = PositionTitle;
+    public void setPositionTitle(String positionTitle) {
+        this.positionTitle = positionTitle;
     }
 
-    public int getPhoneNumer() {
-        return PhoneNumber;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhoneNumer(int PhoneNumer) {
-        this.PhoneNumber = PhoneNumer;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPhoto() {
-        return Photo;
+    public ImageIcon getPhoto() {
+        return photo;
     }
 
-    public void setPhoto(String Photo) {
-        this.Photo = Photo;
+    public void setPhoto(ImageIcon photo) {
+        this.photo = photo;
     }
-    
+
+   @Override
+   public String  toString()
+   {
+       return name;
+   }
+
     
     
     

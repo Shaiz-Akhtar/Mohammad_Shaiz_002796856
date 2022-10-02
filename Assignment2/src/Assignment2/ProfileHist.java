@@ -13,7 +13,7 @@ public class ProfileHist {
     private ArrayList<Profile>history;
 
     public ProfileHist() {
-    this.history = new ArrayList<Profile>();
+    history = new ArrayList<Profile>();
     
     }
 
@@ -24,7 +24,13 @@ public class ProfileHist {
     public void setHistory(ArrayList<Profile> history) {
         this.history = history;
     }
-    
+    public void addprofile(Profile profile){
+        history.add(profile);
+    }
+    public void deleteProfile(Profile p)
+    {
+        history.remove(p);
+    }
     }
 
     

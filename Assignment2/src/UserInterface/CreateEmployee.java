@@ -4,10 +4,13 @@
  */
 package UserInterface;
 
+import Assignment2.Profile;
 import Assignment2.ProfileHist;
 import java.awt.Image;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -50,8 +53,8 @@ public class CreateEmployee extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        Male = new javax.swing.JRadioButton();
+        Female = new javax.swing.JRadioButton();
         jEmployeeId = new javax.swing.JTextField();
         jName = new javax.swing.JTextField();
         jAge = new javax.swing.JTextField();
@@ -62,7 +65,7 @@ public class CreateEmployee extends javax.swing.JPanel {
         jEmail = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        Other = new javax.swing.JRadioButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         JPhoto = new javax.swing.JLabel();
 
@@ -108,21 +111,21 @@ public class CreateEmployee extends javax.swing.JPanel {
             }
         });
 
-        GenderGroup.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jRadioButton1.setText("Male");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        GenderGroup.add(Male);
+        Male.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        Male.setText("Male");
+        Male.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                MaleActionPerformed(evt);
             }
         });
 
-        GenderGroup.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jRadioButton2.setText("Female");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        GenderGroup.add(Female);
+        Female.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        Female.setText("Female");
+        Female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                FemaleActionPerformed(evt);
             }
         });
 
@@ -167,12 +170,12 @@ public class CreateEmployee extends javax.swing.JPanel {
             }
         });
 
-        GenderGroup.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jRadioButton3.setText("Other");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        GenderGroup.add(Other);
+        Other.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        Other.setText("Other");
+        Other.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                OtherActionPerformed(evt);
             }
         });
 
@@ -213,11 +216,11 @@ public class CreateEmployee extends javax.swing.JPanel {
                                     .addComponent(jAge, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(Male)
                                         .addGap(33, 33, 33)
-                                        .addComponent(jRadioButton2)
+                                        .addComponent(Female)
                                         .addGap(27, 27, 27)
-                                        .addComponent(jRadioButton3))
+                                        .addComponent(Other))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))))
@@ -264,9 +267,9 @@ public class CreateEmployee extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Male, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Female, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Other, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,13 +311,13 @@ public class CreateEmployee extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void MaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_MaleActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void FemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemaleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_FemaleActionPerformed
 
     private void jLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLevelActionPerformed
         // TODO add your handling code here:
@@ -336,41 +339,81 @@ public class CreateEmployee extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jEmailActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void OtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_OtherActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-     String Name = jName.getText();
-     try{
+    Profile profile = new Profile();
+    
+    if(jName.getText().isBlank()||jEmployeeId.getText().isBlank()||jAge.getText().isBlank()||jLevel.getText().isBlank()||jTeamInfo.getText().isBlank()||jDesignation.getText().isBlank()||jPhoneNumber.getText().isBlank()||jEmail.getText().isBlank())
+    {
+     JOptionPane.showMessageDialog(null, "Please enter all fields"); 
+     return;
+    }
+    
+    String Name = jName.getText();
+    profile.setName(Name);
+    
+     //Employee id
+    
+    try{
+         
         int EmpId = Integer.parseInt(jEmployeeId.getText());
+        
+        profile.setEmpId(EmpId);
         }
-        catch(Exception e)
+    
+    catch(Exception e)
+        
         {
            JOptionPane.showMessageDialog(null, "Employee id can only be a number"); 
         }
      
-        try{
-            int Age =Integer.parseInt(jAge.getText());
-            
+    //Age
+    
+     try{
+        int Age =Integer.parseInt(jAge.getText());
+        if(Age>18)
+        {
+        profile.setAge(Age);
+         
         }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Minors are not allowed to work age should be greater than 18");
+        }
+     }
         catch(Exception e)
         {
-           JOptionPane.showMessageDialog(null, "Please enter a valid age"); 
+                
+                JOptionPane.showMessageDialog(null, "Please enter a valid age and age should be greater than 18"); 
         }
         
-        try{
+        
+        
+     //Gender   
+    try{
+            
+            Male.setActionCommand("Male");
+            Female.setActionCommand("Female");
+            Other.setActionCommand("Other");
             String Gender = GenderGroup.getSelection().getActionCommand();
+            profile.setGender(Gender);
+            
         }
-         catch(Exception e)
+    catch(Exception e)
         {
            JOptionPane.showMessageDialog(null, "Please select a valid gender"); 
         }
         
-          try{
+      //Calender    
+    
+    try{
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
             String theDate = dateFormat.format(jDateChooser1.getDate());
+            profile.setStartDate(theDate);
         }
         catch(Exception e)
         {
@@ -378,30 +421,53 @@ public class CreateEmployee extends javax.swing.JPanel {
         }
         
         String Level = jLevel.getText();
+        profile.setLevel(Level);
+        
         String TeamInfo = jTeamInfo.getText();
+        profile.setTeamInfo(TeamInfo);
+        
         String PositionTitle = jDesignation.getText();
-        try{
+        profile.setPositionTitle(PositionTitle);
+       
+     //Phone Number   
+    try{
             int PhoneNumber= Integer.parseInt(jPhoneNumber.getText());
             int length = Integer.valueOf(jPhoneNumber.getText().length());
-            if(length==10)
-            {
-              length=0;
-            }
-            else
-            {
-             JOptionPane.showMessageDialog(null, "Enter a valid phone number");   
-            }
-           }
+              if(length==10)
+                {
+              profile.setPhoneNumber(PhoneNumber);
+                }
+               else
+                {
+                    JOptionPane.showMessageDialog(null, "Enter a valid phone number");   
+                }
+        }
          
-         catch(Exception e)
+    catch(Exception e)
          {
              JOptionPane.showMessageDialog(null, "Enter a valid phone number");
          }
        
        
         
-        String Email = jEmail.getText();
-           JOptionPane.showMessageDialog(null, "Data Saved Succefully!");
+        String email = jEmail.getText();
+        
+        String regex = "[A-Za-z0-9]+[.]{0,1}[A-Za-z0-9]+[@][A-Za-z]+[.](com|in|org|edu)"; 
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+if(matcher.matches())
+{
+    profile.setEmail(email);
+}
+else{
+    
+     JOptionPane.showMessageDialog(null, "Please enter a valid email");
+}
+        
+        
+        profile.setPhoto((ImageIcon)JPhoto.getIcon());
+        history.addprofile(profile);
+        JOptionPane.showMessageDialog(null, "Data Saved Succefully!");
         
         
         
@@ -409,23 +475,30 @@ public class CreateEmployee extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 //
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /* TODO add your handling code here:
+        // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         File pic = chooser.getSelectedFile();
+        if(pic==null)
+        {
+            JOptionPane.showMessageDialog(null, "Please upload ");
+        }
         String filename = pic.getAbsolutePath();
-        history.setHistory(filename);
-        ImageIcon icon = new ImageIcon(history.getPhoto());
+        ImageIcon icon = new ImageIcon(filename);
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon dimension = new ImageIcon(imgScale);
-        JPhoto.setIcon( dimension);*/
+        JPhoto.setIcon( dimension);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Female;
     private javax.swing.ButtonGroup GenderGroup;
     private javax.swing.JLabel JPhoto;
+    private javax.swing.JRadioButton Male;
+    private javax.swing.JRadioButton Other;
     private javax.swing.JTextField jAge;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -449,10 +522,13 @@ public class CreateEmployee extends javax.swing.JPanel {
     private javax.swing.JTextField jLevel;
     private javax.swing.JTextField jName;
     private javax.swing.JTextField jPhoneNumber;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTeamInfo;
     // End of variables declaration//GEN-END:variables
+
+   
+    
 }
+
+
+
