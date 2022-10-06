@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package assignment;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -42,7 +43,9 @@ public class ProfileHist {
           // p.setEmpId(tempEmployee.getEmpId()); 
            p.setAge(tempEmployee.getAge()); 
            p.setGender(tempEmployee.getGender());
-           p.setStartDate(tempEmployee.getStartDate());
+           String startDate = new SimpleDateFormat("yyyy-MM-dd").format(tempEmployee.getStartDate());
+           
+          // p.setStartDate(tempEmployee.getStartDate());
            p.setLevel(tempEmployee.getLevel()); 
            p.setPositionTitle(tempEmployee.getPositionTitle()); 
            p.setTeamInfo(tempEmployee.getTeamInfo()); 

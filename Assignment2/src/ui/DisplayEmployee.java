@@ -510,44 +510,109 @@ public class DisplayEmployee extends javax.swing.JPanel {
         model.setRowCount(0);
         if(jbtnView.isValid()){
         String name =jName.getText();
+        
         int empid= Integer.parseInt(jEmployeeId.getText());
-        int age= Integer.parseInt(jAge.getText());
-        String gender =jGender.getText();
-        if(!genderValidation(gender))
-        {
-             JOptionPane.showConfirmDialog(jComboBox1, "Please enter valid gender");
-             return;
-        }
+       
+       
+        
+        
+        
+        
+        
         Date date = jDateChooser1.getDate();
         String level =jLevel.getText();
         String team =jTeamInfo.getText();
         String designation =jDesignation.getText();
-        String phNumber = jPhoneNumber.getText();
+        
+        
         String email =jEmail.getText();
         
         
         
-        JOptionPane.showConfirmDialog(jComboBox1, "Please Confirm to update");
+        
         
         ArrayList<Profile> profileHist = history.getHistory();
         Profile tempEmployee = new Profile();
         
         tempEmployee.setName(name);
         tempEmployee.setEmpId(empid);
-        tempEmployee.setAge(age);
+         try{
+            
+        int age= Integer.parseInt(jAge.getText());
+        
+        if(age>18 && age<60)
+        {
+           tempEmployee.setAge(age);
+         
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Age should be more than 18 and lessthan 60");
+            return;
+        }
+        
+        
+        }
+        
+        
+        
+        catch(Exception e)
+        {
+            
+            JOptionPane.showMessageDialog(null, "Please enter a valid age and age should be greater than 18");  
+            return;
+        }
+        String gender =jGender.getText();
+        if(!genderValidation(gender))
+        {
+             JOptionPane.showMessageDialog(jComboBox1, "Please enter valid gender");
+             return;
+        }
         tempEmployee.setGender(gender);
         tempEmployee.setStartDate(date);
         tempEmployee.setLevel(level);
         tempEmployee.setTeamInfo(team);
         tempEmployee.setPositionTitle(designation);
-        tempEmployee.setPhoneNumber(phNumber);
+           try{     
+         String phNumber = jPhoneNumber.getText();      
+           int length = 0;
+                
+          if(phNumber.length()==10) {
+              tempEmployee.setPhoneNumber(phNumber);
+          } 
+          else {
+              JOptionPane.showMessageDialog(this, "Please enter valid phone number");
+              return;
+          }
+        } catch(Exception e) {
+            
+            JOptionPane.showMessageDialog(this, "Please enter valid phone number");
+        }
+
+        
+        
         tempEmployee.setEmail(email);
         tempEmployee.setPhoto((ImageIcon)JPhoto.getIcon());
-        
+        JOptionPane.showConfirmDialog(jComboBox1, "Please Confirm to update");
         history.updateProfile(tempEmployee, profileHist); //update
         adddata(); //refresh
         
+        
         JOptionPane.showMessageDialog(this,"Data updated successfully");
+        
+       jName.setText(""); //TODO
+       jEmployeeId.setText("");
+       jAge.setText("");
+       jGender.setText("");
+       jDateChooser1.setDate(null);
+       jLevel.setText("");
+       jTeamInfo.setText("");
+       jDesignation.setText("");
+       jPhoneNumber.setText("");
+       jEmail.setText("");
+      JPhoto.setIcon(null);
+      jSearch.setText("");
+        
         }
         
         
@@ -600,7 +665,8 @@ public class DisplayEmployee extends javax.swing.JPanel {
             row[1]= p.getEmpId();
             row[2]=p.getAge();
             row[3]=p.getGender();
-            row[4]=p.getStartDate();
+            String startDate = new SimpleDateFormat("yyyy-MM-dd").format(p.getStartDate());
+            row[4]=startDate;
             row[5]=p.getLevel();
             row[6]=p.getTeamInfo();
             row[7]=p.getPositionTitle();
