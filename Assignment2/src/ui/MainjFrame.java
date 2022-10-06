@@ -7,6 +7,7 @@ package ui;
 import assignment.Profile;
 import assignment.ProfileHist;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -79,6 +80,8 @@ public class MainjFrame extends javax.swing.JFrame {
 
         jSplitPane.setLeftComponent(jPanelLeft);
 
+        jPanelRight.setPreferredSize(new java.awt.Dimension(700, 900));
+
         javax.swing.GroupLayout jPanelRightLayout = new javax.swing.GroupLayout(jPanelRight);
         jPanelRight.setLayout(jPanelRightLayout);
         jPanelRightLayout.setHorizontalGroup(
@@ -118,6 +121,11 @@ public class MainjFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         DisplayEmployee displayemployee;
+        if(history.getHistory().size() ==0)
+        {
+            JOptionPane.showMessageDialog(null, "No Data Found!!");
+            return;
+        }
         displayemployee=new DisplayEmployee(history);
         jSplitPane.setRightComponent(displayemployee);
     }//GEN-LAST:event_jButton1ActionPerformed

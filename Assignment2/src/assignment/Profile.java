@@ -4,6 +4,7 @@
  */
 package assignment;
 
+import java.util.Date;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,7 +16,7 @@ public class Profile {
     private int empId;
     private int age;
     private String gender;
-    private String startDate;
+    private Date startDate;
     private String level;
     private String teamInfo;
     private String positionTitle;
@@ -55,11 +56,11 @@ public class Profile {
         this.gender = gender;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 

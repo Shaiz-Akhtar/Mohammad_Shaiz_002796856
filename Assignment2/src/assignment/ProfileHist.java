@@ -96,6 +96,16 @@ public class ProfileHist {
         
         return tempList;
  }
+     public ArrayList<Profile> searchByLevel(String searchValue, ArrayList<Profile> tempList, ArrayList<Profile> historyList){        
+        for(Profile p: historyList){
+            if(p.getLevel().equalsIgnoreCase(searchValue)){
+                tempList.add(p);
+            }
+        }  
+        
+        return tempList;
+ }
+    
     
     public ArrayList<Profile> searchByPhone(String searchValue, ArrayList<Profile> tempList, ArrayList<Profile> historyList){        
         for(Profile p: historyList){

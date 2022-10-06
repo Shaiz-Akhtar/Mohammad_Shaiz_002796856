@@ -69,6 +69,8 @@ public class CreateEmployee extends javax.swing.JPanel {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         JPhoto = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(700, 900));
+
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Employee Details");
@@ -233,12 +235,12 @@ public class CreateEmployee extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(217, 217, 217)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(421, Short.MAX_VALUE)))
+                    .addContainerGap(410, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,10 +304,10 @@ public class CreateEmployee extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(266, Short.MAX_VALUE)
+                    .addContainerGap(423, Short.MAX_VALUE)
                     .addComponent(jLabel11)
                     .addGap(277, 277, 277)))
         );
@@ -419,8 +421,7 @@ public class CreateEmployee extends javax.swing.JPanel {
     
     try{
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-            String theDate = dateFormat.format(jDateChooser1.getDate());
-            profile.setStartDate(theDate);
+            profile.setStartDate(jDateChooser1.getDate());
         }
         catch(Exception e)
         {
@@ -479,10 +480,13 @@ public class CreateEmployee extends javax.swing.JPanel {
        jAge.setText("");
        GenderGroup.clearSelection();
        jTeamInfo.setText("");
+       jDateChooser1.setDate(null);
        jLevel.setText("");
        jDesignation.setText("");
        jPhoneNumber.setText("");
        jEmail.setText("");
+       JPhoto.setIcon(null);
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
